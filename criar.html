@@ -1,40 +1,97 @@
-<!DOCTYPE html>
+<script type="text/javascript">
+        var gk_isXlsx = false;
+        var gk_xlsxFileLookup = {};
+        var gk_fileData = {};
+        function filledCell(cell) {
+          return cell !== '' && cell != null;
+        }
+        function loadFileData(filename) {
+        if (gk_isXlsx && gk_xlsxFileLookup[filename]) {
+            try {
+                var workbook = XLSX.read(gk_fileData[filename], { type: 'base64' });
+                var firstSheetName = workbook.SheetNames[0];
+                var worksheet = workbook.Sheets[firstSheetName];
+
+                // Convert sheet to JSON to filter blank rows
+                var jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1, blankrows: false, defval: '' });
+                // Filter out blank rows (rows where all cells are empty, null, or undefined)
+                var filteredData = jsonData.filter(row => row.some(filledCell));
+
+                // Heuristic to find the header row by ignoring rows with fewer filled cells than the next row
+                var headerRowIndex = filteredData.findIndex((row, index) =>
+                  row.filter(filledCell).length >= filteredData[index + 1]?.filter(filledCell).length
+                );
+                // Fallback
+                if (headerRowIndex === -1 || headerRowIndex > 25) {
+                  headerRowIndex = 0;
+                }
+
+                // Convert filtered JSON back to CSV
+                var csv = XLSX.utils.aoa_to_sheet(filteredData.slice(headerRowIndex)); // Create a new sheet from filtered array of arrays
+                csv = XLSX.utils.sheet_to_csv(csv, { header: 1 });
+                return csv;
+            } catch (e) {
+                console.error(e);
+                return "";
+            }
+        }
+        return gk_fileData[filename] || "";
+        }
+        </script><!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Criar Filme</title>
     <link rel="stylesheet" href="style.css">
+    <title>Criar Novo Filme</title>
 </head>
 <body>
-    <h2>Criar Novo Filme</h2>
-    <form class="form-filme">
-        <label>Título:</label>
-        <input type="text" required>
+    <header>
+        <h1 class="titulo-filmes">Catálogo de Filmes</h1>
+    </header>
+    <main>
+        <form class="form-filme" autocomplete="off">
+            <h2 style="text-align:center; color:#43a047; margin-bottom: 18px;">Adicionar Novo Filme</h2>
+            <label for="titulo">Título:</label>
+            <input type="text" id="titulo" name="titulo" placeholder="Ex: Alien Romulus" required aria-required="true">
 
-        <label>Banner do Filme (URL da Imagem):</label>
-        <input type="url" id="banner" placeholder="https://exemplo.com/imagem.jpg">
+            <label for="banner">Banner do Filme (URL da Imagem):</label>
+            <input type="url" id="banner" name="banner" placeholder="Ex: https://example.com/banner.jpg" required aria-required="true">
 
-        <label>Duração (min):</label>
-        <input type="number">
+            <label for="duracao">Duração (min):</label>
+            <input type="number" id="duracao" name="duracao" placeholder="Ex: 120" min="1" required aria-required="true">
 
-        <label>Ano de Lançamento:</label>
-        <input type="number">
+            <label for="ano">Ano de Lançamento:</label>
+            <input type="number" id="ano" name="ano" placeholder="Ex: 2024" min="1900" max="2100" required aria-required="true">
 
-        <label>Gênero:</label>
-        <input type="text">
+            <label for="genero">Gênero:</label>
+            <input type="text" id="genero" name="genero" placeholder="Ex: Terror/Ficção científica" required aria-required="true">
 
-        <label>Idioma:</label>
-        <input type="text">
+            <label for="idioma">Idioma:</label>
+            <input type="text" id="idioma" name="idioma" placeholder="Ex: pt-br" required aria-required="true">
 
-        <label>Estúdio:</label>
-        <input type="text">
+            <label for="estudio">Estúdio:</label>
+            <input type="text" id="estudio" name="estudio" placeholder="Ex: 20th Century Studios" required aria-required="true">
 
-        <label>Sinopse:</label>
-        <textarea></textarea>
+            <label for="sinopse">Sinopse:</label>
+            <textarea id="sinopse" name="sinopse" placeholder="Descreva o filme..." required aria-required="true"></textarea>
 
-        <button type="submit">Salvar</button>
-        <button type="button" onclick="window.location.href='index.html'">Voltar</button>
-    </form>
+            <div style="display: flex; gap: 12px; margin-top: 18px; justify-content: center;">
+                <button type="submit" style="background-color: #43a047;">
+                    <svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true" focusable="false" style="vertical-align: middle;">
+                        <circle cx="10" cy="10" r="9" fill="#43a047"/>
+                        <path d="M10 5v10M5 10h10" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                    Salvar
+                </button>
+                <button type="button" onclick="window.history.back()" style="background-color: #888;">
+                    <svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true" focusable="false" style="vertical-align: middle;">
+                        <path d="M12 5l-7 7 7 7" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                    Voltar
+                </button>
+            </div>
+        </form>
+    </main>
 </body>
 </html>

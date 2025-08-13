@@ -3,169 +3,136 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Catálogo de Filmes</title>
     <link rel="stylesheet" href="style.css">
+    <title>Catálogo de Filmes</title>
 </head>
 <body>
     <header>
-        <div class="table-structure">
-    <strong class="titulo-filmes">Filmes:</strong> <br>
+        <h1 class="titulo-filmes">Catálogo de Filmes</h1>
+        <div class="actions">
+            <button onclick="window.location.href='criar.html'" title="Adicionar novo filme" aria-label="Criar">
+                <svg viewBox="0 0 20 20" aria-hidden="true" focusable="false">
+                    <path d="M10 2v16M2 10h16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/>
+                </svg>
+                Criar
+            </button>
+            <button onclick="window.location.href='editar.html'" title="Editar um filme" aria-label="Editar">
+                <svg viewBox="0 0 20 20" aria-hidden="true" focusable="false">
+                    <path d="M14.7 3.3a1 1 0 0 1 1.4 1.4l-9 9-2 2V17h2l2-2 9-9z" fill="none" stroke="currentColor" stroke-width="2"/>
+                </svg>
+                Editar
+            </button>
+            <button onclick="window.location.href='excluir.html'" title="Excluir um filme" aria-label="Excluir">
+                <svg viewBox="0 0 20 20" aria-hidden="true" focusable="false">
+                    <path d="M6 7v7m4-7v7m4-7v7M4 5h12M8 5V3h4v2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+                Excluir
+            </button>
         </div>
-
-<div class="actions">
-    <button onclick="window.location.href='criar.html'">Criar</button>
-    <button onclick="window.location.href='editar.html'">Editar</button>
-    <button onclick="window.location.href='excluir.html'">Excluir</button>
-</div>
-
     </header>
-
     <main>
-<h2>Catálogo de Filmes</h2>
-<div class="catalog">
-    <div class="movie-card">
-        <h3>ID 1: Alien Romulus</h3>
-         <img src="img/romulus.jpeg" alt="Banner do Filme">
-        <p><strong>Duração:</strong> 120 min</p>
-        <p><strong>Ano:</strong> 2024</p>
-        <p><strong>Gênero:</strong> Terror/Ficção científica</p>
-        <p><strong>Idioma:</strong> pt-br</p>
-        <p><strong>Estúdio:</strong> 20th Century Studios</p>
-        <p><strong>Sinopse:</strong> Um grupo de jovens colonizadores espaciais se 
-            aventuram nas profundezas de uma estação espacial abandonada. 
-            Lá, eles descobrem uma forma de vida aterrorizante, forçando-os 
-            a lutar por sua sobrevivência.</p>
-    </div>
-    <div class="movie-card">
-        <h3>ID 2: Jogos Vorazes</h3>
-        <img src="img/HungerGamesPoster.jpg" alt="Banner do Filme">
-        <p><strong>Duração:</strong> 142 min</p>
-        <p><strong>Ano:</strong> 2012</p>
-        <p><strong>Gênero:</strong>  Ação/Aventura</p>
-        <p><strong>Idioma:</strong> pt-br</p>
-        <p><strong>Estúdio:</strong> Lionsgate</p>
-        <p><strong>Sinopse:</strong> Na região antigamente conhecida como América do Norte, 
-            a Capital de Panem controla 12 distritos e os força a escolher um garoto e uma garota, 
-            conhecidos como tributos, para competir em um evento anual televisionado. 
-            Todos os cidadãos assistem aos temidos jogos, no qual os jovens lutam até a morte, 
-            de modo que apenas um saia vitorioso. A jovem Katniss Everdeen, do Distrito 12, 
-            confia na habilidade de caça e na destreza com o arco, além dos instintos aguçados, 
-            nesta competição mortal.</p>
-    </div>
-    <div class="movie-card">
-        <h3>ID 2: Jogos Vorazes</h3>
-        <img src="img/HungerGamesPoster.jpg" alt="Banner do Filme">
-        <p><strong>Duração:</strong> 142 min</p>
-        <p><strong>Ano:</strong> 2012</p>
-        <p><strong>Gênero:</strong>  Ação/Aventura</p>
-        <p><strong>Idioma:</strong> pt-br</p>
-        <p><strong>Estúdio:</strong> Lionsgate</p>
-        <p><strong>Sinopse:</strong> Na região antigamente conhecida como América do Norte, 
-            a Capital de Panem controla 12 distritos e os força a escolher um garoto e uma garota, 
-            conhecidos como tributos, para competir em um evento anual televisionado. 
-            Todos os cidadãos assistem aos temidos jogos, no qual os jovens lutam até a morte, 
-            de modo que apenas um saia vitorioso. A jovem Katniss Everdeen, do Distrito 12, 
-            confia na habilidade de caça e na destreza com o arco, além dos instintos aguçados, 
-            nesta competição mortal.</p>
-    </div>
-    <div class="movie-card">
-        <h3>ID 2: Jogos Vorazes</h3>
-        <img src="img/HungerGamesPoster.jpg" alt="Banner do Filme">
-        <p><strong>Duração:</strong> 142 min</p>
-        <p><strong>Ano:</strong> 2012</p>
-        <p><strong>Gênero:</strong>  Ação/Aventura</p>
-        <p><strong>Idioma:</strong> pt-br</p>
-        <p><strong>Estúdio:</strong> Lionsgate</p>
-        <p><strong>Sinopse:</strong> Na região antigamente conhecida como América do Norte, 
-            a Capital de Panem controla 12 distritos e os força a escolher um garoto e uma garota, 
-            conhecidos como tributos, para competir em um evento anual televisionado. 
-            Todos os cidadãos assistem aos temidos jogos, no qual os jovens lutam até a morte, 
-            de modo que apenas um saia vitorioso. A jovem Katniss Everdeen, do Distrito 12, 
-            confia na habilidade de caça e na destreza com o arco, além dos instintos aguçados, 
-            nesta competição mortal.</p>
-    </div>
-    <div class="movie-card">
-        <h3>ID 2: Jogos Vorazes</h3>
-        <img src="img/HungerGamesPoster.jpg" alt="Banner do Filme">
-        <p><strong>Duração:</strong> 142 min</p>
-        <p><strong>Ano:</strong> 2012</p>
-        <p><strong>Gênero:</strong>  Ação/Aventura</p>
-        <p><strong>Idioma:</strong> pt-br</p>
-        <p><strong>Estúdio:</strong> Lionsgate</p>
-        <p><strong>Sinopse:</strong> Na região antigamente conhecida como América do Norte, 
-            a Capital de Panem controla 12 distritos e os força a escolher um garoto e uma garota, 
-            conhecidos como tributos, para competir em um evento anual televisionado. 
-            Todos os cidadãos assistem aos temidos jogos, no qual os jovens lutam até a morte, 
-            de modo que apenas um saia vitorioso. A jovem Katniss Everdeen, do Distrito 12, 
-            confia na habilidade de caça e na destreza com o arco, além dos instintos aguçados, 
-            nesta competição mortal.</p>
-    </div>
-    <div class="movie-card">
-        <h3>ID 2: Jogos Vorazes</h3>
-        <img src="img/HungerGamesPoster.jpg" alt="Banner do Filme">
-        <p><strong>Duração:</strong> 142 min</p>
-        <p><strong>Ano:</strong> 2012</p>
-        <p><strong>Gênero:</strong>  Ação/Aventura</p>
-        <p><strong>Idioma:</strong> pt-br</p>
-        <p><strong>Estúdio:</strong> Lionsgate</p>
-        <p><strong>Sinopse:</strong> Na região antigamente conhecida como América do Norte, 
-            a Capital de Panem controla 12 distritos e os força a escolher um garoto e uma garota, 
-            conhecidos como tributos, para competir em um evento anual televisionado. 
-            Todos os cidadãos assistem aos temidos jogos, no qual os jovens lutam até a morte, 
-            de modo que apenas um saia vitorioso. A jovem Katniss Everdeen, do Distrito 12, 
-            confia na habilidade de caça e na destreza com o arco, além dos instintos aguçados, 
-            nesta competição mortal.</p>
-    </div>
-    <div class="movie-card">
-        <h3>ID 2: Jogos Vorazes</h3>
-        <img src="img/HungerGamesPoster.jpg" alt="Banner do Filme">
-        <p><strong>Duração:</strong> 142 min</p>
-        <p><strong>Ano:</strong> 2012</p>
-        <p><strong>Gênero:</strong>  Ação/Aventura</p>
-        <p><strong>Idioma:</strong> pt-br</p>
-        <p><strong>Estúdio:</strong> Lionsgate</p>
-        <p><strong>Sinopse:</strong> Na região antigamente conhecida como América do Norte, 
-            a Capital de Panem controla 12 distritos e os força a escolher um garoto e uma garota, 
-            conhecidos como tributos, para competir em um evento anual televisionado. 
-            Todos os cidadãos assistem aos temidos jogos, no qual os jovens lutam até a morte, 
-            de modo que apenas um saia vitorioso. A jovem Katniss Everdeen, do Distrito 12, 
-            confia na habilidade de caça e na destreza com o arco, além dos instintos aguçados, 
-            nesta competição mortal.</p>
-    </div>
-    <div class="movie-card">
-        <h3>ID 2: Jogos Vorazes</h3>
-        <img src="img/HungerGamesPoster.jpg" alt="Banner do Filme">
-        <p><strong>Duração:</strong> 142 min</p>
-        <p><strong>Ano:</strong> 2012</p>
-        <p><strong>Gênero:</strong>  Ação/Aventura</p>
-        <p><strong>Idioma:</strong> pt-br</p>
-        <p><strong>Estúdio:</strong> Lionsgate</p>
-        <p><strong>Sinopse:</strong> Na região antigamente conhecida como América do Norte, 
-            a Capital de Panem controla 12 distritos e os força a escolher um garoto e uma garota, 
-            conhecidos como tributos, para competir em um evento anual televisionado. 
-            Todos os cidadãos assistem aos temidos jogos, no qual os jovens lutam até a morte, 
-            de modo que apenas um saia vitorioso. A jovem Katniss Everdeen, do Distrito 12, 
-            confia na habilidade de caça e na destreza com o arco, além dos instintos aguçados, 
-            nesta competição mortal.</p>
-    </div>
-    <div class="movie-card">
-        <h3>ID 2: Jogos Vorazes</h3>
-        <img src="img/HungerGamesPoster.jpg" alt="Banner do Filme">
-        <p><strong>Duração:</strong> 142 min</p>
-        <p><strong>Ano:</strong> 2012</p>
-        <p><strong>Gênero:</strong>  Ação/Aventura</p>
-        <p><strong>Idioma:</strong> pt-br</p>
-        <p><strong>Estúdio:</strong> Lionsgate</p>
-        <p><strong>Sinopse:</strong> Na região antigamente conhecida como América do Norte, 
-            a Capital de Panem controla 12 distritos e os força a escolher um garoto e uma garota, 
-            conhecidos como tributos, para competir em um evento anual televisionado. 
-            Todos os cidadãos assistem aos temidos jogos, no qual os jovens lutam até a morte, 
-            de modo que apenas um saia vitorioso. A jovem Katniss Everdeen, do Distrito 12, 
-            confia na habilidade de caça e na destreza com o arco, além dos instintos aguçados, 
-            nesta competição mortal.</p>
-    </div>
-</div>
-
+        <div class="catalog">
+            <div class="movie-card">
+                <img src="img/romulus.jpeg" alt="Poster de Alien Romulus">
+                <div class="movie-details">
+                    <h3>ID 1: Alien Romulus</h3>
+                    <p><strong>Duração:</strong> 120 min</p>
+                    <p><strong>Ano:</strong> 2024</p>
+                    <p><strong>Gênero:</strong> Terror/Ficção científica</p>
+                    <p><strong>Idioma:</strong> pt-br</p>
+                    <p><strong>Estúdio:</strong> 20th Century Studios</p>
+                    <p><strong>Sinopse:</strong> Um grupo de jovens colonizadores espaciais se aventuram nas profundezas de uma estação espacial abandonada. Lá, eles descobrem uma forma de vida aterrorizante, forçando-os a lutar por sua sobrevivência.</p>
+                </div>
+            </div>
+            <div class="movie-card">
+                <img src="img/HungerGamesPoster.jpg" alt="Poster de Jogos Vorazes">
+                <div class="movie-details">
+                    <h3>ID 2: Jogos Vorazes</h3>
+                    <p><strong>Duração:</strong> 142 min</p>
+                    <p><strong>Ano:</strong> 2012</p>
+                    <p><strong>Gênero:</strong> Ação/Aventura</p>
+                    <p><strong>Idioma:</strong> pt-br</p>
+                    <p><strong>Estúdio:</strong> Lionsgate</p>
+                    <p><strong>Sinopse:</strong> Na região antigamente conhecida como América do Norte, a Capital de Panem controla 12 distritos e os força a escolher um garoto e uma garota, conhecidos como tributos, para competir em um evento anual televisionado. Todos os cidadãos assistem aos temidos jogos, no qual os jovens lutam até a morte, de modo que apenas um saia vitorioso. A jovem Katniss Everdeen, do Distrito 12, confia na habilidade de caça e na destreza com o arco, além dos instintos aguçados, nesta competição mortal.</p>
+                </div>
+            </div>
+            <!-- Adicione mais movie-cards conforme necessário para testar as 5 colunas -->
+            <div class="movie-card">
+                <img src="URL_DA_IMAGEM_AQUI" alt="Poster de Filme 3">
+                <div class="movie-details">
+                    <h3>ID 3: Filme 3</h3>
+                    <p><strong>Duração:</strong> 130 min</p>
+                    <p><strong>Ano:</strong> 2023</p>
+                    <p><strong>Gênero:</strong> Drama</p>
+                    <p><strong>Idioma:</strong> pt-br</p>
+                    <p><strong>Estúdio:</strong> Estúdio Exemplo</p>
+                    <p><strong>Sinopse:</strong> Uma história emocionante sobre superação.</p>
+                </div>
+            </div>
+            <div class="movie-card">
+                <img src="URL_DA_IMAGEM_AQUI" alt="Poster de Filme 4">
+                <div class="movie-details">
+                    <h3>ID 4: Filme 4</h3>
+                    <p><strong>Duração:</strong> 115 min</p>
+                    <p><strong>Ano:</strong> 2025</p>
+                    <p><strong>Gênero:</strong> Comédia</p>
+                    <p><strong>Idioma:</strong> pt-br</p>
+                    <p><strong>Estúdio:</strong> Estúdio Exemplo</p>
+                    <p><strong>Sinopse:</strong> Uma comédia hilária sobre amizade.</p>
+                </div>
+            </div>
+            <div class="movie-card">
+                <img src="URL_DA_IMAGEM_AQUI" alt="Poster de Filme 5">
+                <div class="movie-details">
+                    <h3>ID 5: Filme 5</h3>
+                    <p><strong>Duração:</strong> 140 min</p>
+                    <p><strong>Ano:</strong> 2024</p>
+                    <p><strong>Gênero:</strong> Ação</p>
+                    <p><strong>Idioma:</strong> pt-br</p>
+                    <p><strong>Estúdio:</strong> Estúdio Exemplo</p>
+                    <p><strong>Sinopse:</strong> Uma aventura cheia de ação.</p>
+                </div>
+            </div>
+        </div>
     </main>
+    <div id="movie-modal" class="movie-modal">
+        <div class="modal-content">
+            <span class="close-modal" title="Fechar" aria-label="Fechar">&times;</span>
+            <img id="modal-img" src="" alt="Poster do Filme">
+            <div id="modal-details"></div>
+        </div>
+    </div>
+    <script>
+document.querySelectorAll('.movie-card img').forEach(img => {
+    img.addEventListener('click', () => {
+        const card = img.closest('.movie-card');
+        const modal = document.getElementById('movie-modal');
+        const modalImg = document.getElementById('modal-img');
+        const modalDetails = document.getElementById('modal-details');
+
+        // Pega os dados do card
+        modalImg.src = img.src;
+        modalImg.alt = img.alt;
+        modalDetails.innerHTML = card.querySelector('.movie-details').innerHTML;
+
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden'; // Evita scroll do fundo
+    });
+});
+
+// Fechar modal ao clicar no X
+document.querySelector('.close-modal').onclick = function() {
+    document.getElementById('movie-modal').classList.remove('active');
+    document.body.style.overflow = '';
+};
+
+// Fechar modal ao clicar fora do conteúdo
+document.getElementById('movie-modal').onclick = function(e) {
+    if (e.target === this) {
+        this.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+};
+</script>
 </body>
 </html>
