@@ -1,0 +1,144 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    background-color: #222;
+    color: #fff;
+    padding: 15px 20px;
+}
+
+.titulo-filmes {
+    font-size: 30px; 
+    color: #ffffff; 
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+.table-structure {
+    font-size: 14px;
+    max-width: 70%;
+    line-height: 1.5;
+}
+
+.actions button {
+    margin-left: 5px;
+    padding: 8px 12px;
+    border: none;
+    background-color: #4CAF50;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.actions button:nth-child(2) {
+    background-color: #FF9800;
+}
+
+.actions button:nth-child(3) {
+    background-color: #F44336;
+}
+
+.actions button:hover {
+    opacity: 0.8;
+}
+
+main {
+    padding: 20px;
+}
+
+.catalog {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(280px, 1fr));
+    gap: 20px;
+    background-color: #4CAF50;
+}
+
+.movie-card {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden; /* Garante que a imagem siga o arredondamento */
+    padding: 0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    border: 3px solid #ddd; /* Moldura */
+    width: 400px;
+    height: 500px;
+}
+
+.movie-card img {
+    /* width: 30%;
+    height: 150px; */
+    object-fit: cover; /* Ajusta imagem sem distorcer */
+    border-bottom: 3px solid #ddd; /* separa imagem do conteúdo */
+}
+
+.movie-card img {
+    width: 30%;
+    height: auto;
+}
+
+
+.movie-card h3 {
+    margin-bottom: 10px;
+    color: #222;
+}
+
+.movie-card p {
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+form.form-filme {
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    margin: 20px auto;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+form.form-filme label {
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+form.form-filme input,
+form.form-filme textarea {
+    padding: 8px;
+    margin-top: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+form.form-filme button {
+    margin-top: 15px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+}
+
+form.form-filme button:hover {
+    opacity: 0.8;
+}
+

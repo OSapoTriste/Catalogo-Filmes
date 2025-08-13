@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Criar Filme</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h2>Criar Novo Filme</h2>
+    <form class="form-filme">
+        <label>Título:</label>
+        <input type="text" required>
+
+        <label>Banner do Filme (URL da Imagem):</label>
+        <input type="url" id="banner" placeholder="https://exemplo.com/imagem.jpg">
+
+        <label>Duração (min):</label>
+        <input type="number">
+
+        <label>Ano de Lançamento:</label>
+        <input type="number">
+
+        <label>Gênero:</label>
+        <input type="text">
+
+        <label>Idioma:</label>
+        <input type="text">
+
+        <label>Estúdio:</label>
+        <input type="text">
+
+        <label>Sinopse:</label>
+        <textarea></textarea>
+
+        <button type="submit">Salvar</button>
+        <button type="button" onclick="window.location.href='index.html'">Voltar</button>
+    </form>
+</body>
+</html>
