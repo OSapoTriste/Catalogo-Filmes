@@ -28,6 +28,9 @@
                 </svg>
                 Excluir
             </button>
+            <button id="btn-config" title="Configurações" aria-label="Configurações" style="background:#388e3c; color:#fff; border:none; border-radius:5px; padding:8px 16px; margin-left:10px; cursor:pointer;">
+                ⚙️ Configurações
+            </button>
         </div>
     </header>
     <main>
@@ -132,6 +135,11 @@ document.getElementById('movie-modal').onclick = function(e) {
         this.classList.remove('active');
         document.body.style.overflow = '';
     }
+};
+
+// Botão de configuração
+document.getElementById('btn-config').onclick = function() {
+    window.location.href = 'config.html';
 };
 </script>
 </body>

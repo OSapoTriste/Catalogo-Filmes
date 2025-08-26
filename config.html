@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Configurações</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body { background: #f8fff8; font-family: Arial, sans-serif; }
+        .config-container {
+            max-width: 400px;
+            margin: 60px auto;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px #0002;
+            padding: 32px 24px;
+        }
+        .config-container h2 { color: #388e3c; text-align: center; }
+        .config-container label { display: block; margin-top: 18px; color: #388e3c; }
+        .config-container input[type="password"], .config-container input[type="text"] {
+            width: 100%; padding: 10px; border: 1.5px solid #43a047; border-radius: 6px; margin-top: 6px;
+        }
+        .config-container button {
+            margin-top: 22px; width: 100%; background: #43a047; color: #fff; border: none; border-radius: 6px; padding: 10px; font-size: 1rem; cursor: pointer;
+        }
+        .hidden { display: none; }
+        .success { color: #388e3c; text-align: center; margin-top: 10px; }
+        .error { color: #c62828; text-align: center; margin-top: 10px; }
+        .add-section { margin-top: 30px; }
+        .add-section label { color: #388e3c; }
+        .add-section input[type="text"] { margin-bottom: 10px; }
+    </style>
+</head>
+<body>
+    <div class="config-container">
+        <h2>Área de Configuração</h2>
+        <div id="senha-area">
+            <label for="senha">Digite a senha para desbloquear:</label>
+            <input type="password" id="senha" placeholder="Senha">
+            <button onclick="verificarSenha()">Desbloquear</button>
+            <div id="msg-senha"></div>
+        </div>
+        <div id="config-area" class="hidden">
+            <div class="success">Acesso liberado!</div>
+            <div class="add-section">
+                <h3>Adicionar opções</h3>
+                <label for="novo-genero">Novo Gênero:</label>
+                <input type="text" id="novo-genero" placeholder="Ex: Suspense">
+                <button onclick="adicionarOpcao('generos', 'novo-genero')">Adicionar Gênero</button>
+
+                <label for="novo-idioma">Novo Idioma:</label>
+                <input type="text" id="novo-idioma" placeholder="Ex: it">
+                <button onclick="adicionarOpcao('idiomas', 'novo-idioma')">Adicionar Idioma</button>
+
+                <label for="novo-estudio">Novo Estúdio:</label>
+                <input type="text" id="novo-estudio" placeholder="Ex: Pixar">
+                <button onclick="adicionarOpcao('estudios', 'novo-estudio')">Adicionar Estúdio</button>
+            </div>
+            <div id="msg-add"></div>
+        </div>
+    </div>
+    <script>
+    // Defina sua senha aqui
+    const SENHA = "1234";
+
+    function verificarSenha() {
+        const senha = document.getElementById('senha').value;
+        const msg = document.getElementById('msg-senha');
+        if (senha === SENHA) {
+            document.getElementById('senha-area').classList.add('hidden');
+            document.getElementById('config-area').classList.remove('hidden');
+            msg.textContent = "";
+        } else {
+            msg.textContent = "Senha incorreta!";
+            msg.className = "error";
+        }
+    }
+
+    function adicionarOpcao(tipo, inputId) {
+        const valor = document.getElementById(inputId).value.trim();
+        if (!valor) return;
+        let lista = JSON.parse(localStorage.getItem(tipo)) || [];
+        if (lista.includes(valor)) {
+            document.getElementById('msg-add').textContent = "Opção já existe!";
+            document.getElementById('msg-add').className = "error";
+            return;
+        }
+        lista.push(valor);
+        localStorage.setItem(tipo, JSON.stringify(lista));
+        document.getElementById('msg-add').textContent = "Opção adicionada!";
+        document.getElementById('msg-add').className = "success";
+        document.getElementById(inputId).value = "";
+    }
+    </script>

@@ -44,6 +44,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <title>Editar Filme</title>
+    <style>
+    .form-filme select {
+        width: 100%;
+        padding: 10px 12px;
+        border: 1.5px solid #ff9800;
+        border-radius: 6px;
+        background: #fffaf3;
+        color: #222;
+        font-size: 1rem;
+        margin-bottom: 14px;
+        transition: border-color 0.2s;
+        outline: none;
+        appearance: none;
+        box-shadow: 0 1px 2px #0001;
+    }
+    .form-filme select:focus {
+        border-color: #c66900;
+        background: #fff6e0;
+    }
+    .form-filme label {
+        margin-top: 10px;
+        font-weight: 500;
+        color: #ff9800;
+    }
+    .form-filme option[disabled],
+    .form-filme option[value=""] {
+        color: #888;
+    }
+    </style>
 </head>
 <body>
     <header>
@@ -68,16 +97,22 @@
             <input type="number" id="ano" name="ano" placeholder="Ex: 2024" min="1900" max="2100" required aria-required="true">
 
             <label for="genero">Novo Gênero:</label>
-            <input type="text" id="genero" name="genero" placeholder="Ex: Terror/Ficção científica" required aria-required="true">
+<select id="genero" name="genero" required aria-required="true">
+    <option value="" disabled selected>Selecione...</option>
+</select>
 
-            <label for="idioma">Novo Idioma:</label>
-            <input type="text" id="idioma" name="idioma" placeholder="Ex: pt-br" required aria-required="true">
+<label for="idioma">Novo Idioma:</label>
+<select id="idioma" name="idioma" required aria-required="true">
+    <option value="" disabled selected>Selecione...</option>
+</select>
 
-            <label for="estudio">Novo Estúdio:</label>
-            <input type="text" id="estudio" name="estudio" placeholder="Ex: 20th Century Studios" required aria-required="true">
+<label for="estudio">Novo Estúdio:</label>
+<select id="estudio" name="estudio" required aria-required="true">
+    <option value="" disabled selected>Selecione...</option>
+</select>
 
-            <label for="sinopse">Nova Sinopse:</label>
-            <textarea id="sinopse" name="sinopse" placeholder="Descreva o filme..." required aria-required="true"></textarea>
+<label for="sinopse">Nova Sinopse:</label>
+<textarea id="sinopse" name="sinopse" placeholder="Descreva o filme..." required aria-required="true"></textarea>
 
             <div style="display: flex; gap: 12px; margin-top: 18px; justify-content: center;">
                 <button type="submit" style="background-color: #ff9800;">
@@ -97,3 +132,25 @@
     </main>
 </body>
 </html>
+
+<script>
+// Busca do localStorage ou usa valores padrão se não houver nada salvo
+const generos = JSON.parse(localStorage.getItem('generos')) || ["Terror", "Ficção científica", "Ação", "Comédia", "Drama"];
+const idiomas = JSON.parse(localStorage.getItem('idiomas')) || ["pt-br", "en", "es", "fr"];
+const estudios = JSON.parse(localStorage.getItem('estudios')) || ["20th Century Studios", "Warner Bros", "Universal", "Paramount"];
+
+function preencherSelect(id, opcoes) {
+    const select = document.getElementById(id);
+    // Limpa opções antigas (exceto a primeira)
+    select.length = 1;
+    opcoes.forEach(op => {
+        const option = document.createElement('option');
+        option.value = op;
+        option.textContent = op;
+        select.appendChild(option);
+    });
+}
+preencherSelect('genero', generos);
+preencherSelect('idioma', idiomas);
+preencherSelect('estudio', estudios);
+</script>

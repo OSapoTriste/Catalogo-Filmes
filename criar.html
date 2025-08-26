@@ -65,13 +65,19 @@
             <input type="number" id="ano" name="ano" placeholder="Ex: 2024" min="1900" max="2100" required aria-required="true">
 
             <label for="genero">Gênero:</label>
-            <input type="text" id="genero" name="genero" placeholder="Ex: Terror/Ficção científica" required aria-required="true">
+            <select id="genero" name="genero" required aria-required="true">
+                <option value="">Selecione...</option>
+            </select>
 
             <label for="idioma">Idioma:</label>
-            <input type="text" id="idioma" name="idioma" placeholder="Ex: pt-br" required aria-required="true">
+            <select id="idioma" name="idioma" required aria-required="true">
+                <option value="">Selecione...</option>
+            </select>
 
             <label for="estudio">Estúdio:</label>
-            <input type="text" id="estudio" name="estudio" placeholder="Ex: 20th Century Studios" required aria-required="true">
+            <select id="estudio" name="estudio" required aria-required="true">
+                <option value="">Selecione...</option>
+            </select>
 
             <label for="sinopse">Sinopse:</label>
             <textarea id="sinopse" name="sinopse" placeholder="Descreva o filme..." required aria-required="true"></textarea>
@@ -93,5 +99,27 @@
             </div>
         </form>
     </main>
+
+    <script>
+// Busca do localStorage ou usa valores padrão se não houver nada salvo
+const generos = JSON.parse(localStorage.getItem('generos')) || ["Terror", "Ficção científica", "Ação", "Comédia", "Drama"];
+const idiomas = JSON.parse(localStorage.getItem('idiomas')) || ["pt-br", "en", "es", "fr"];
+const estudios = JSON.parse(localStorage.getItem('estudios')) || ["20th Century Studios", "Warner Bros", "Universal", "Paramount"];
+
+function preencherSelect(id, opcoes) {
+    const select = document.getElementById(id);
+    // Limpa opções antigas (exceto a primeira)
+    select.length = 1;
+    opcoes.forEach(op => {
+        const option = document.createElement('option');
+        option.value = op;
+        option.textContent = op;
+        select.appendChild(option);
+    });
+}
+preencherSelect('genero', generos);
+preencherSelect('idioma', idiomas);
+preencherSelect('estudio', estudios);
+</script>
 </body>
 </html>
